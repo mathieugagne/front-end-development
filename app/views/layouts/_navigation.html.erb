@@ -1,0 +1,17 @@
+<ul class="nav nav-sidebar">
+  <li class="<%= 'active' if current_page?('/') %>">
+    <%= link_to 'Overview', root_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/getting-started') %>">
+    <%= link_to 'Getting Started', getting_started_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/add-project-to-git') %>">
+    <%= link_to 'Add The Project To A Git Repo', add_project_to_git_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/running-application') %>">
+    <%= link_to 'Running Your Application Locally', running_application_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/next-steps') %>">
+    <%= link_to 'Next Steps', next_steps_path %>
+  </li>
+</ul>
