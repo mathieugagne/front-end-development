@@ -1,0 +1,69 @@
+<h1 class="page-header">Rails Templates and Helper Methods</h1>
+
+<h3>Helper Methods</h3>
+<blockquote>
+  <p>
+    The Rails framework provides a large number of helpers for working with assets, dates, forms, numbers and model objects, to name a few. These helpers are available to all templates by default.
+  </p>
+  <p>
+    In addition to using the standard template helpers provided, creating custom helpers to extract complicated logic or reusable functionality is strongly encouraged. By default, each controller will include all helpers.
+  </p>
+</blockquote>
+
+<h3>Sorting Headers</h3>
+<blockquote>
+  <p>Use <code>helper methods</code> to add a sorting feature to each table header.</p>
+  <h4>Step 1</h4>
+  <p>Add a reusable method to create a link telling the controller the attribute and direction to sort projects.</p>
+  <pre><code>&lt;th&gt;&lt;%= sortable_header(:title) %&gt;&lt;/th&gt;
+&lt;th&gt;&lt;%= sortable_header(:description) %&gt;&lt;/th&gt;
+&lt;th&gt;&lt;%= sortable_header(:status) %&gt;&lt;/th&gt;
+&lt;th&gt;&lt;%= sortable_header(:comments_count, 'Comments') %&gt;&lt;/th&gt;</code></pre>
+  <h4>Step 2</h4>
+  <p>
+    Create a helper module for tables and add the <code>sortable_header</code> method.
+  </p>
+  <pre><code>rails g helper tables</code></pre>
+  <pre><code class="ruby">module TablesHelper
+
+  def sortable_header column, title=nil
+    title ||= column.titleize
+    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    link_to title, { sort: column, direction: direction }
+  end
+
+end</code></pre>
+  <h4>Step 3</h4>
+  <p>Add <code>sort_column</code> and <code>sort_direction</code> methods to your <code>ProjectsController</code></p>
+  <pre><code class="ruby">class ProjectsController < ApplicationController
+
+  ...
+
+  private
+
+  def sort_column
+    Project.column_names.include?(params[:sort]) ? params[:sort] : :title
+  end
+  helper_method :sort_column
+
+  def sort_direction
+    [:asc, :desc].include?(params[:direction]) ? params[:direction].to_sym : :asc
+  end
+  helper_method :sort_direction
+
+end</code></pre>
+
+  <h4>Step 4</h4>
+  <p>Modify the index method to order projects by <code>sort_column</code> and <code>sort_direction</code></p>
+  <pre><code class="ruby">def index
+  @projects = Project.order(sort_column => sort_direction)
+end</code></pre>
+</blockquote>
+
+<h2>Explanation</h2>
+<blockquote>
+  <p>
+    Helper methods are great at DRYing up your code. Helpers are your first-line infantry when it comes to avoid simple or complex presentational logic in views.
+  </p>
+  <p>In future lessons, we will learn that helper methods have drawbacks. We will explore different object-oriented techniques to sanitize your view code.</p>
+</blockquote>

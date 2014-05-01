@@ -1,0 +1,61 @@
+<h1 class="page-header">Front End in Rails</h1>
+
+<h3>Assets folder</h3>
+<blockquote>
+  <p>
+    In development, all your stylesheets and javascript files lie in your assets folders in their respective folders. Other folders may include images, fonts, svg, flash, etc.
+  </p>
+
+  <p>
+    In production, your assets are optimized through the <code>Assets Pipeline</code> and are stored in your <code>public</code> folder.
+  </p>
+</blockquote>
+
+<h3>Assets Pipeline</h3>
+<blockquote>
+  <p>
+    The Rails <a href="http://guides.rubyonrails.org/asset_pipeline.html">Asset Pipeline</a> provides a framework to concatenate and minify or compress JavaScript and CSS assets. It also adds the ability to write these assets in other languages and pre-processors such as CoffeeScript, Sass and ERB.
+  </p>
+
+  <h4>Benefits</h4>
+  <ul>
+    <li><h5>Concatenate</h5></li>
+    <li><h5>Minify</h5></li>
+    <li><h5>Compress</h5></li>
+    <li><h5>Fingerprint</h5></li>
+    <li><h5>Pre-processor compiling</h5></li>
+  </ul>
+</blockquote>
+
+<h3>Manifest Files</h3>
+<blockquote>
+  <p>
+    Sprockets uses <a href="http://guides.rubyonrails.org/asset_pipeline.html#manifest-files-and-directives">manifest files</a> to determine which assets to include and serve. These manifest files contain directives - instructions that tell Sprockets which files to require in order to build a single CSS or JavaScript file.
+  </p>
+
+  <pre><code># application.js
+
+//= require jquery
+//= require jquery_ujs
+//= require jquery.turbolinks
+//= require_tree .
+//= require turbolinks</code></pre>
+
+  <pre><code># application.css.scss
+@import "bourbon";
+@import "neat";
+
+// Vendors
+@import "select2";
+@import "shadowbox";
+@import "mousetrap";
+@import "vendor/*";
+
+// SMACCS
+@import "settings/*";
+@import "mixins/*";
+@import "layout/*";
+@import "components/*";
+@import "modules/*";
+@import "overrides/*";</code></pre>
+</blockquote>

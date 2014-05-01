@@ -1,0 +1,57 @@
+<h1 class="page-header">CSS Frameworks</h1>
+<blockquote>
+  <p>CSS frameworks are pre-prepared libraries that are meant to allow for easier, more standards-compliant styling of web pages.</p>
+  Some examples are:
+  <ul>
+    <li><h4>Twitter Bootstrap</h4></li>
+    <li><h4>Less Framework</h4></li>
+    <li><h4>Bourbon Neat</h4></li>
+    <li><h4>Blueprint</h4></li>
+    <li><h4>Foundation</h4></li>
+    <li><h4>Compass</h4></li>
+    <li><h4>960 grid system</h4></li>
+  </ul>
+</blockquote>
+
+<h2>Twitter Bootstrap</h2>
+<blockquote>
+  <p>An overview of Bootstrap, how to download and use, basic templates and examples, and more</p>
+
+  <h3>Step 1</h3>
+  <blockquote>
+    <p>Add Bootstrap stylesheets to the <code>head</code> of your application layout file</p>
+    <pre><code>&lt;!-- Latest compiled and minified CSS --&gt;
+&lt;link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"&gt;
+
+&lt;!-- Optional theme --&gt;
+&lt;link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"&gt;</code></pre>
+  </blockquote>
+
+  <h3>Step 2</h3>
+  <p>Remove all our current css files from <code>app/assets/stylesheets</code> and fix the manifest file.</p>
+
+  <h3>Step 3</h3>
+  <blockquote>
+    <p>Buckle up as we give Milo a beauty treatment.</p>
+    <ul>
+      <li><h4>Fix layout with <code>.container</code></h4></li>
+      <li><h4>Fix table with <code>.table</code></h4></li>
+      <li><h4>Add a <code>.navbar</code> with our 'log out' link</h4></li>
+      <li><h4>Add a permanent <code>+ New Project</code> link at the top</h4></li>
+      <li><h4>Make links appear as buttons</h4></li>
+      <li><h4>Turn status into labels</h4></li>
+      <li><h4>Add alert messages</h4></li>
+    </ul>
+  </blockquote>
+
+  <h3>Step 4</h3>
+  <blockquote>
+    <p>Let's bring forms to an other level. HTML5 forms complying with Twitter Bootstrap</p>
+    <p>Install Simple Form</p>
+    <pre><code>gem 'simple_form', github: 'plataformatec/simple_form'</code></pre>
+    <p>Run install generator</p>
+    <pre><code>rails g simple_form:install --bootstrap</code></pre>
+    <p>Restart application to take into account new initializers</p>
+  </blockquote>
+
+</blockquote>

@@ -1,0 +1,51 @@
+<h1 class='page-header'>Rails Layouts and Rendering</h1>
+<blockquote>
+  <p>
+    <a href="http://guides.rubyonrails.org/layouts_and_rendering.html">Layouts and Rendering</a> Rails guide focuses on the interaction between Controller and View in the Model-View-Controller triangle.
+  </p>
+</blockquote>
+
+<h3>The MVC fashion</h3>
+<blockquote>
+  <p>
+    What happens after <code>Controller</code> and <code>Model</code> have their chat?
+  </p>
+  <p>Instances are given to a view object and the different templates are assembled and given as a single html document.</p>
+</blockquote>
+
+<h3>The implicit <code>render</code></h3>
+<blockquote>
+  <pre><code class="ruby">class ProjectsController < ApplicationController
+  def index
+    @projects = Project.all
+  end
+end
+</code></pre>
+  <p>
+    Note that we don't have explicit render at the end of the index action in accordance with "convention over configuration" principle. The rule is that if you do not explicitly render something at the end of a controller action, Rails will automatically look for the <code>action_name.html.erb</code> template in the controller's view path and render it.
+  </p>
+  <p>
+    So in this case, given the <code>projects</code> controller at the <code>index</code> action with a default <code>html</code> format, Rails will look for the view template at <code>app/views/projects/index.html.erb</code>
+  </p>
+</blockquote>
+
+<h3>Layout</h3>
+<blockquote>
+  <p>When Rails renders a view as a response, it does so by combining the view with the current layout.</p>
+  <p>Your application will normally only have a single layout but it is possible to have more than one.</p>
+  <p>You can specify a different layout by:</p>
+  <ul>
+    <li>specify in your controller with the <code>layout</code> method</li>
+    <li>specify in your <code>render</code> call giving the attribute <code>layout: :layout_name</code></li>
+  </ul>
+  <h3>Understanding <code>yield</code></h3>
+  <p>
+    Within the context of a layout, <code>yield</code> identifies a section where content from the view should be inserted. The simplest way to use this is to have a single yield, into which the entire contents of the view currently being rendered is inserted:
+  </p>
+  <pre><code>&lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;%= yield %&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</blockquote>

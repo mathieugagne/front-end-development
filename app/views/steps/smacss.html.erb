@@ -1,0 +1,36 @@
+<h1 class="page-header">SMACSS</h1>
+
+<h3>Scalable and Modular Architecture for CSS</h3>
+<blockquote>
+  <p>SMACSS is not a framework or a library but rather a solid set of guidelines to follow sites small and large.</p>
+  <p>It is an attempt to document a consistent approach to site development when using CSS</p>
+</blockquote>
+
+<h3>Categorizing CSS Rules</h3>
+<blockquote>
+  <p>Every project needs some organization.</p>
+  <p>Five types of categories:</p>
+  <ol>
+    <li>Base rules are the defaults</li>
+    <li>Layout rules divide the page into sections</li>
+    <li>Modules are the reusable, modular parts of our design</li>
+    <li>State rules are ways to describe how our modules or layouts will look when in a particular state.</li>
+    <li>Theme rules are similar to state rules in that they describe how modules or layouts might look</li>
+  </ol>
+  <p>Since these are simply guidelines, I find myself adding 3 more categories:</p>
+  <ol>
+    <li>Settings is where I can my variables, fonts, colors and z-index rules</li>
+    <li>Vendor is for third-party downloaded css rules</li>
+    <li>Mixins is for my SASS mixins and placeholders</li>
+  </ol>
+</blockquote>
+
+<h3>Implementation</h3>
+<blockquote>
+  <p>Start today. Take a look at what your <code>stylesheets</code> folder and reorganize your rules according to SMACSS principles.</p>
+  <h3>Step 1</h3>
+  <p>Rename your <code>application.css</code> manifest file to <code>application.css.scss</code></p>
+  <h3>Step 2</h3>
+  <p>Use the <code>@import</code> Sass helper to keep your manifest file clean.</p>
+  <pre><code>@import "base/*";</code></pre>
+</blockquote>

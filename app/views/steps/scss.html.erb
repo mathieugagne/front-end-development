@@ -1,0 +1,99 @@
+<h1 class="page-header">SASS / SCSS</h1>
+<blockquote>
+  <p>Sass is an extension of CSS that adds power and elegance to the basic language. It allows you to use <strong>variables</strong>, <strong>nested rules</strong>, <strong>mixins</strong>, <strong>inline imports</strong>, and more, all with a fully CSS-compatible syntax.</p>
+</blockquote>
+
+<h3>Variables</h3>
+<blockquote>
+  <p>Sass allows you to set variables, begining with a <code>$</code></p>
+  <pre><code>$bg-well: #e2e2e2;
+#main {
+  background-color: $bg-well;
+}</code></pre>
+</blockquote>
+
+<h3>Nested Rules</h3>
+<blockquote>
+  <p>With Sass you don't have to refer the parent selectors all the time. You can simply nest the rules and it will be compiled accordingly.</p>
+  <pre><code class='css'>#main p {
+  color: #00ff00;
+  width: 97%;
+
+  .redbox {
+    background-color: #ff0000;
+    color: #000000;
+  }
+}</code></pre>
+  <p>is compiled to:</p>
+  <pre><code class='css'>#main p {
+  color: #00ff00;
+  width: 97%;
+}
+#main p .redbox {
+  background-color: #ff0000;
+  color: #000000;
+}</code></pre>
+</blockquote>
+
+<h3>Referencing parent selector <code>&</code></h3>
+<blockquote>
+  <p>You can refer to the parent selector using the shortchode <code>&</code></p>
+  <pre><code class="css">a {
+  color: #555;
+  &:hover {
+    text-decoration: underline;
+    color: #333;
+  }
+}</code></pre>
+</blockquote>
+
+<h3>Mixins</h3>
+<blockquote>
+  <p><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#mixins">Mixins</a> allow you to define styles that can be re-used throughout the stylesheet without needing to resort to non-semantic classes like .float-left. </p>
+  <pre><code class="css">@mixin sexy-border($color, $width: 1in) {
+  border: {
+    color: $color;
+    width: $width;
+    style: dashed;
+  }
+}
+p { @include sexy-border(blue); }
+h1 { @include sexy-border(blue, 2in); }</code></pre>
+</blockquote>
+
+<h3>Placeholders</h3>
+<blockquote>
+  <p>Sass supports a special type of selector called a “placeholder selector”. These look like class and id selectors, except the # or . is replaced by %. They’re meant to be used with the @extend directive.</p>
+  <pre><code class='sass'>%rounded {
+  border-radius: 3px;
+}
+
+%rounded-bottom {
+  border-radius: 0 0 3px 3px;
+}
+
+%rounded-top {
+  border-radius: 3px 3px 0 0;
+}
+
+%rounded-right {
+  border-radius: 0 3px 3px 0;
+}
+
+.rounded {
+  @extend %rounded;
+}</code></pre>
+</blockquote>
+
+<h3><code>@for</code></h3>
+<blockquote>
+  <p>Sass also has operators!</p>
+  <pre><code class="css">@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}</code></pre>
+</blockquote>
+
+<h3>And the list goes on..</h3>
+<blockquote>
+  <p>Read more at <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">http://sass-lang.com/documentation/file.SASS_REFERENCE.html</a></p>
+</blockquote>

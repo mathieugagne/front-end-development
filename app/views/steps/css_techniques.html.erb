@@ -1,0 +1,46 @@
+<h1 class="page-header">CSS Techniques</h1>
+
+<h3>Responsive Design</h3>
+<blockquote>
+  <p>
+    Responsive web design aims at crafting sites to provide an optimal viewing experience—easy reading and navigation with a minimum of resizing, panning, and scrolling—across a wide range of devices (from mobile phones to desktop computer monitors).
+  </p>
+  <p>Responsive design adapts the layout to the viewing environment by using media queries <code>@media</code> CSS3 rule</p>
+  <p>Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, most commonly the width of the browser.</p>
+  <p>Twitter Bootstrap <a href="http://getbootstrap.com/css/#responsive-utilities">responsive utilities</a> will help you design better user interface adapted to the viewer's device.</p>
+  <p>From a Rails perspective, Responsive Design allows you to keep the same HTML markup code and MVC logic while displaying different results to the end user.</p>
+</blockquote>
+
+<h3>Parallax</h3>
+<blockquote>
+  <p>Parallax scrolling is a special scrolling technique in computer graphics, wherein background images move by the camera slower than foreground images</p>
+  <p>See it in action <a href="http://stephband.info/jparallax/">here</a></p>
+</blockquote>
+
+<h3>Image Sprites</h3>
+<blockquote>
+  <p>An image sprite is a collection of images put into a single image.</p>
+  <p>Using the <code>background-position</code> property, you can select only the desired image to be the background.</p>
+  <p><%= image_tag 'img_navsprites_hover.gif' %></p>
+  <p>Merging images together helps with the page load time by reducing the amount of network requests.</p>
+</blockquote>
+
+<h3>Font Icons</h3>
+<blockquote>
+  <p>A font where all character represent a particular icon. Fonts are vectorized which allows to customize:</p>
+  <ul>
+    <li>size</li>
+    <li>color</li>
+    <li>shadow</li>
+    <li>opacity</li>
+    <li>etc</li>
+  </ul>
+  <p>Introducing <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a></p>
+  <h3>Step 1</h3>
+  <p>Add Font Awesome to your application layout</p>
+  <pre><code>&lt;link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"&gt;</code></pre>
+
+  <h3>Step 2</h3>
+  <p>Add icons to Milo's links to mark their intention.</p>
+  <pre><code>&lt;i class='fa fa-pencil'&gt;&lt;/i&gt;</code></pre>
+</blockquote>

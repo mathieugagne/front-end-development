@@ -1,0 +1,79 @@
+<h1 class='page-header'>What is CSS?</h1>
+
+<h2>Definition</h2>
+<blockquote>
+  <p>
+    CSS stands for <strong>C</strong>ascading <strong>S</strong>tyle<strong>s</strong>heets. It's a language for creating <strong>rules</strong> that can <strong>select</strong> various elements on the page and change their <strong>visual properties</strong>.
+  </p>
+
+  <ul>
+    <li>
+      <strong>C</strong>ascading - The 'cascade' is one of the trickier elements of CSS to master, but it basically means you can define a bunch of styling rules of different strengths, and CSS will apply them all, resolving any conflicting rules by allowing stronger rules overwrite (or <em>cascade</em> over) weaker rules.
+    </li>
+    <li>
+      <strong>S</strong>tyle<strong>s</strong>heets - CSS files are called 'stylesheets' because they allow you to put your
+      styling rules into a separate document (a 'sheet') of file type .css, and then choose to
+      include one or more in a given HTML page. This is a <em>very</em> important feature for sites with many pages,
+      because it allows you to write your rules once and then include them everywhere on your site with
+      a single link on each page.
+    </li>
+  </ul>
+</blockquote>
+
+<h2>CSS is powerful</h2>
+<blockquote>
+  <h4>Look at this horrible skeleton</h4>
+  <p>Let's look at any website of your choice and remove the stylesheets to see what its plain HTML would look like.</p>
+</blockquote>
+
+<h2>CSS Rules Are Made of a Selector and Attributes</h2>
+<blockquote>
+  <p>The <strong>selector</strong> tells the browser what elements to add that style to. On this page we'll only use existing tags, like <code>&lt;h1&gt;</code> and <code>&lt;p&gt;</code>, as our selectors.</p>
+
+  <p>The <strong>attributes</strong> tell the browser how to style the elements you selected. The first part, <code>padding:</code> is a <strong>property</strong>, and the part after the colon <code>20px</code> is the <strong>value</strong>. The line is finished with a semicolon.</p>
+
+  <pre><code>h1 {
+  padding: 20px;
+}</code></pre>
+</blockquote>
+
+<h3>When should I use a class, and when should I use an ID?</h3>
+<blockquote>
+  <h4>Classes</h4>
+  <p>
+    A <strong>class</strong> attribute should be used to group elements that <em>could</em> exist
+    more than once on a given page. For example, you might give certain
+    paragraphs a class of <code>"jumbotron"</code> and use that class to highlight them.
+    Even if you only have one paragraph that's jumbotron now, you might
+    want to add more later.
+  </p>
+
+  <p>
+    A class attribute will look like <code>class="jumbotron"</code> in the HTML and <code>.jumbotron</code> in the CSS. Don't mix up where the dot goes!
+  </p>
+
+  <h4>IDs</h4>
+
+  <p>
+    An <strong>id</strong> is a unique label. Use it to identify things you'd only have one
+    of. For example, if you ran a news website, you would only have one element
+    on a page that would serve as a masthead, and you could give it an id
+    like <code>id="handsome-header"</code>
+  </p>
+
+  <p>An id attribute will look like <code>id="handsome-header"</code> in the HTML, and <code>#handsome-header</code> in the CSS.</p>
+
+  <p>Within these guidelines, when you use classes and IDs is a matter of style / taste.</p>
+</blockquote>
+
+<h3>Style the comments count column</h3>
+<blockquote>
+  <p>Align in the middle the comments count from the projects index.</p>
+  <h3>Step 1</h3>
+  <p>Give the table cell <code>td</code> a class <code>text-center</code></p>
+  <h3>Step 2</h3>
+  <p>Create a rule to align text to center</p>
+  <pre><code>.text-center {
+  text-align: center;
+}</code></pre>
+</blockquote>

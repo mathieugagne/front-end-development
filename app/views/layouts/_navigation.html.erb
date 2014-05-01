@@ -5,12 +5,86 @@
   <li class="<%= 'active' if current_page?('/getting-started') %>">
     <%= link_to 'Getting Started', getting_started_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/add-project-to-git') %>">
-    <%= link_to 'Add The Project To A Git Repo', add_project_to_git_path %>
+  <li class="<%= 'active' if current_page?('/html-css-js') %>">
+    <%= link_to 'HTML / CSS / JS', html_css_js_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/running-application') %>">
-    <%= link_to 'Running Your Application Locally', running_application_path %>
+  <li class="<%= 'active' if current_page?('/front-end-in-rails') %>">
+    <%= link_to 'Front End in Rails', front_end_in_rails_path %>
   </li>
+</ul>
+<ul class="nav nav-sidebar">
+  <li class='disabled'>
+    <a href="#" ><h4>HTML</h4></a>
+  </li>
+  <li class="<%= 'active' if current_page?('/html-document-structure') %>">
+    <%= link_to 'HTML Document Structure', html_document_structure_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/html5') %>">
+    <%= link_to 'HTML5', html5_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/layouts-and-rendering') %>">
+    <%= link_to 'Rails Layouts & Rendering', layouts_and_rendering_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/rails-templates-helper-methods') %>">
+    <%= link_to 'Rails Templates & Helper methods', rails_templates_helper_methods_path %>
+  </li>
+</ul>
+
+<ul class="nav nav-sidebar">
+  <li class='disabled'>
+    <a href="#" ><h4>CSS</h4></a>
+  </li>
+  <li class="<%= 'active' if current_page?('/css-definition-examples') %>">
+    <%= link_to 'Definition & Examples', css_definition_examples_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/css-frameworks') %>">
+    <%= link_to 'CSS Frameworks', css_frameworks_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/grid-system') %>">
+    <%= link_to 'Grid System', grid_system_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/css3') %>">
+    <%= link_to 'CSS3', css3_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/css-techniques') %>">
+    <%= link_to 'CSS Techniques', css_techniques_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/scss') %>">
+    <%= link_to 'SASS & SCSS', scss_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/smacss') %>">
+    <%= link_to 'SMACSS', smacss_path %>
+  </li>
+</ul>
+
+<ul class="nav nav-sidebar">
+  <li class='disabled'>
+    <a href="#" ><h4>Javascript</h4></a>
+  </li>
+  <li class="<%= 'active' if current_page?('/html-html5') %>">
+    <%= link_to 'DOM Manipulation', html5_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/rails-templates-and-helper-methods') %>">
+    <%= link_to 'JS Libraries', rails_templates_helper_methods_path %>
+  </li>
+  <li class="<%= 'active' if current_page?('/layout-and-rendering') %>">
+    <%= link_to 'jQuery Tutorial', root_url %>
+  </li>
+  <li class="<%= 'active' if current_page?('/layout-and-rendering') %>">
+    <%= link_to 'Adding plugins to Rails', root_url %>
+  </li>
+  <li class="<%= 'active' if current_page?('/layout-and-rendering') %>">
+    <%= link_to 'Turbolinks', root_url %>
+  </li>
+  <li class="<%= 'active' if current_page?('/layout-and-rendering') %>">
+    <%= link_to 'Coffeescript', root_url %>
+  </li>
+  <li class="<%= 'active' if current_page?('/layout-and-rendering') %>">
+    <%= link_to "What's the weather like?", root_url %>
+  </li>
+</ul>
+
+<ul class="nav nav-sidebar">
   <li class="<%= 'active' if current_page?('/next-steps') %>">
     <%= link_to 'Next Steps', next_steps_path %>
   </li>
