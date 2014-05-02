@@ -19,10 +19,9 @@
   def index
     @projects = Project.all
   end
-end
-</code></pre>
+end</code></pre>
   <p>
-    Note that we don't have explicit render at the end of the index action in accordance with "convention over configuration" principle. The rule is that if you do not explicitly render something at the end of a controller action, Rails will automatically look for the <code>action_name.html.erb</code> template in the controller's view path and render it.
+    Note that we don't give an explicit <code>render</code> call at the end of the index action in accordance with "convention over configuration" principle. The rule is that if you do not explicitly render something at the end of a controller action, Rails will automatically look for the <code>action_name.html.erb</code> template in the controller's view path and render it.
   </p>
   <p>
     So in this case, given the <code>projects</code> controller at the <code>index</code> action with a default <code>html</code> format, Rails will look for the view template at <code>app/views/projects/index.html.erb</code>
@@ -32,11 +31,29 @@ end
 <h3>Layout</h3>
 <blockquote>
   <p>When Rails renders a view as a response, it does so by combining the view with the current layout.</p>
-  <p>Your application will normally only have a single layout but it is possible to have more than one.</p>
-  <p>You can specify a different layout by:</p>
+  <p>Your application will normally have a single layout but it is possible to have more than one.</p>
+  <p>To add a different layout you can:</p>
   <ul>
-    <li>specify in your controller with the <code>layout</code> method</li>
-    <li>specify in your <code>render</code> call giving the attribute <code>layout: :layout_name</code></li>
+    <li>
+      specify in your controller with the <code>layout</code> method
+      <pre><code>class ProjectsController < ApplicationController
+  layout :some_other_layout_name
+
+  def index
+    @projects = Project.all
+  end
+end</code></pre>
+    </li>
+    <li>
+      specify in your <code>render</code> call giving the attribute <code>layout: :layout_name</code>
+
+      <pre><code>class ProjectsController < ApplicationController
+  def index
+    @projects = Project.all
+    render :index, layout: :some_other_layout_name
+  end
+end</code></pre>
+    </li>
   </ul>
   <h3>Understanding <code>yield</code></h3>
   <p>
@@ -48,4 +65,21 @@ end
     &lt;%= yield %&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+  <h3><code>content_for</code></h3>
+  <p>Calling <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/CaptureHelper.html#method-i-content_for"><code>content_for</code></a> stores a block of markup in an identifier for later use. In order to access this stored content in other templates, helper modules or the layout, you would pass the identifier as an argument to content_for.</p>
+  <pre><code>&lt;% content_for :navigation do %&gt;
+  &lt;li&gt;&lt;%= link_to 'Home', action: 'index' %&gt;&lt;/li&gt;
+&lt;% end %&gt;
+...
+&lt;%= yield :navigation %&gt;</code></pre>
+  <pre><code><span class="tag">&lt;<span class="title">html</span></span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">title</span>&gt;</span>My Website<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+  <span class="vbscript">&lt;%= yield :script %&gt;</span>
+<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span> <span class="attribute">class</span>=<span class="value">"&lt;%= content_for?(:right_col) ? 'two-column' : 'one-column' %&gt;"</span>&gt;</span>
+  <span class="vbscript">&lt;%= yield %&gt;</span>
+  <span class="vbscript">&lt;%= yield :right_col %&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></pre>
 </blockquote>

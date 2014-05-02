@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/turbolinks', to: 'steps#turbolinks'
   get '/coffeescript', to: 'steps#coffeescript'
   get '/ajax', to: 'steps#ajax'
+  get '/weather-widget', to: 'steps#weather_widget'
   get '/better-alerts', to: 'steps#better_alerts'
   get '/next-steps', to: 'steps#next_steps'
 
