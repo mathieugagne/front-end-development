@@ -1,0 +1,49 @@
+<h1 class="page-header">AJAX</h1>
+
+<blockquote>
+  <p>AJAX or Asynchronous JavaScript refers to sending data to, and retrieve data from, a server in the background without interfering with the display and behavior of the existing page.</p>
+</blockquote>
+
+<h2>Goals</h2>
+<blockquote>
+  <ul>
+    <li>Give our comment form asynchronous features.</li>
+    <li>Respond to different formats</li>
+    <li>Use our new Notification class to give feedback</li>
+  </ul>
+</blockquote>
+
+<h3>Step 1</h3>
+<blockquote>
+  <p>Rails <code>form_for</code> takes a <code>remote</code> argument so the form will be submitted by Ajax rather than by the browser's normal submit mechanism.</p>
+  <pre><code>remote: true</code></pre>
+  <div class="alert alert-info">Notice the <code>data-remote="true"</code> attribute added to the form.</div>
+</blockquote>
+
+<h3>Step 2</h3>
+<blockquote>
+  <p>Ajax isn't just client-side, you also need to do some work on the server side to support it.</p>
+  <pre><code>if @comment.save
+  respond_to do |format|
+    @message = 'Comment was successfully posted.'
+    format.html { redirect_to @project, notice: @message }
+    format.js { @message_type = 'notice' }
+  end
+else
+  respond_to do |format|
+    @message = @comment.errors.full_messages.join('. ')
+    format.html { redirect_to @project, alert: @message }
+    format.js { @message_type = 'alert' }
+  end
+end</code></pre>
+</blockquote>
+
+<h3>Step 3</h3>
+<blockquote>
+  <p>Create a <code>create.js.erb</code> template</p>
+  <pre><code>&lt;% if @comment.valid? %&gt;
+  $("&lt;%= escape_javascript(render @comment) %&gt;").prependTo(".comments");
+  $('#new_comment')[0].reset()
+&lt;% end %&gt;
+new Notification("&lt;%= @message %&gt;", "&lt;%= @message_type %&gt;");</code></pre>
+</blockquote>

@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get '/js-libraries', to: 'steps#js_libraries'
   get '/jquery-tutorial', to: 'steps#jquery_tutorial'
   get '/turbolinks', to: 'steps#turbolinks'
+  get '/coffeescript', to: 'steps#coffeescript'
+  get '/ajax', to: 'steps#ajax'
+  get '/better-alerts', to: 'steps#better_alerts'
   get '/next-steps', to: 'steps#next_steps'
 
   root to: 'steps#overview'

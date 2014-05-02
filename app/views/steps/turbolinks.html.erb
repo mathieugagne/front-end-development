@@ -1,0 +1,23 @@
+<h1 class="page-header">Turbolinks</h1>
+<blockquote>
+  <p>Turbolinks makes following links in your web application faster. Instead of letting the browser recompile the JavaScript and CSS between each page change, it keeps the current page instance alive and replaces only the body and the title in the head.</p>
+  <p>The more CSS and JavaScript you have, the bigger the benefit of not throwing away the browser instance and recompiling all of it for every page.</p>
+</blockquote>
+
+<h3>How it Works</h3>
+<blockquote>
+  <p>Turbolinks attaches a click handler to all &lt;a&gt; on the page. If your browser supports PushState, Turbolinks will make an Ajax request for the page, parse the response, and replace the entire &lt;body&gt; of the page with the &lt;body&gt; of the response. It will then use PushState to change the URL to the correct one, preserving refresh semantics and giving you pretty URLs.</p>
+</blockquote>
+
+<h3>Uh Oh</h3>
+<blockquote>
+  <p>With Turbolinks pages will change without a full reload, so you can't rely on <code>DOMContentLoaded</code> or <code>jQuery.ready()</code> to trigger your code. Instead Turbolinks fires events on <code>document</code> to provide hooks into the lifecycle of the page.</p>
+</blockquote>
+
+<h3>jquery.turbolinks</h3>
+<blockquote>
+  <p>If you have a lot of existing JavaScript that binds elements on jQuery.ready(), you can pull the <a href="https://github.com/kossnocorp/jquery.turbolinks">jquery.turbolinks</a> library into your project that will trigger ready() when Turbolinks triggers the the <code>page:load</code> event. It may restore functionality of some libraries.</p>
+  <p>Add the gem to your project, then add the following line to your JavaScript manifest file, after <code>jquery.js</code> but before <code>turbolinks.js</code>:</p>
+  <pre><span class="c1">//= require jquery.turbolinks</span></pre>
+  <p>Additional details and configuration options can be found in the <a href="https://github.com/kossnocorp/jquery.turbolinks/blob/master/README.md">jquery.turbolinks README</a>.</p>
+</blockquote>

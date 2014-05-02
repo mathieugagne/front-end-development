@@ -1,0 +1,102 @@
+<h1 class="page-header">Better Alerts</h1>
+<blockquote>
+  <p>Our flash messages are a bit weak at the moment. In this lesson, we will learn how to create a CoffeeScript class to handle the animation of our Flash messages.</p>
+</blockquote>
+<h2>Goals</h2>
+<blockquote>
+  <ul>
+    <li>Create a CoffeeScript class</li>
+    <li>Play with jQuery Animations and Events</li>
+  </ul>
+</blockquote>
+
+<h3>Step 1</h3>
+<blockquote>
+  <p>Create a flash message template</p>
+  <pre><code>&lt;div class="flash-container"&gt;
+  &lt;div class="flash-alert"&gt;
+    Text can't be blank
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</blockquote>
+
+<h3>Step 2</h3>
+<blockquote>
+  <p>Give it some style</p>
+  <pre><code>.flash-container {
+  display: none;
+  cursor: pointer;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.8;
+  z-index: 100;
+  font-size: 1.2em;
+
+  .flash-notice, .flash-alert {
+    padding: 12px;
+  }
+
+  .flash-notice {
+    background: #49C;
+    text-shadow: 0 1px 1px #178;
+  }
+  .flash-alert {
+    background: #C67;
+    text-shadow: 0 1px 1px #945;
+  }
+}</code></pre>
+</blockquote>
+
+<h3>Step 3</h3>
+<blockquote>
+  <p>Create a partial to handle all flash messages</p>
+  <pre><code>&lt;div class="flash-container"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+  &lt;% flash.each do |name, msg| %&gt;
+    new Notification('&lt;%= msg %&gt;', '&lt;%= name %&gt;')
+  &lt;% end -%&gt;
+&lt;/script&gt;</code></pre>
+</blockquote>
+
+<h3>Step 4</h3>
+<blockquote>
+  <p>Create a Notification CoffeeScript class</p>
+  <pre><code>class @Notification
+  constructor: (message, type)->
+    @message = message
+    @type = type
+    @flash = $(".flash-container").html("").show()
+    @render()
+
+  render: ->
+    $('&lt;div/&gt;',
+      class: "flash-#{@type}",
+      html: @message
+    ).appendTo(".flash-container")</code></pre>
+</blockquote>
+
+<h3>Step 5</h3>
+<blockquote>
+  <p>Animate the notification message</p>
+  <pre><code>class @Notification
+  constructor: (message, type)->
+    @message = message
+    @type = type
+    @flash = $(".flash-container").html("").show()
+    @render()
+    @bindEvents()
+
+  render: ->
+    $('&lt;div/&gt;',
+      class: "flash-#{@type}",
+      html: @message
+    ).appendTo(".flash-container")
+
+  bindEvents: =>
+    @flash.click -> $(@).fadeOut()
+    setTimeout (=> @flash.fadeOut()), 5000</code></pre>
+</blockquote>

@@ -1,1 +1,86 @@
-<h1 class="page-header">JS Libraries</h1>
+<h1 class="page-header">JS Libraries: jQuery</h1>
+<blockquote>
+  <p>A JavaScript library is a library of pre-written JavaScript which allows for easier development of JavaScript-based applications, especially for AJAX and other web-centric technologies.</p>
+  <p>Some examples:</p>
+  <ul>
+    <li>jQuery</li>
+    <li>Prototype JavaScript Framework</li>
+    <li>Dojo Toolkit</li>
+    <li>MooTools</li>
+    <li>YUI Library</li>
+  </ul>
+</blockquote>
+
+<h2>jQuery</h2>
+<blockquote>
+  <p>jQuery is by far the most popular JS library out there.</p>
+  <p>It is particularly good at:</p>
+  <ul>
+    <li>finding elements in your HTML document</li>
+    <li>changing HTML content</li>
+    <li>listening to user interactions and reacting accordingly</li>
+    <li>animate content on the page</li>
+    <li>talk over the network to push or fetch some content</li>
+  </ul>
+  <h4>But that's not all.</h4>
+  <p>Each browser interacts with the DOM differently. With jQuery, you can write one piece of code and not worry about the different browser and DOM interfaces.</p>
+</blockquote>
+
+<h3>Finding</h3>
+<blockquote>
+  <pre><code>> sidebar = $('.sidebar')
+[&lt;div class=​"col-sm-3 col-md-2 sidebar"&gt;​…​&lt;/div&gt;​]
+> sidebar.children().first()
+[&lt;ul class=​"nav nav-sidebar"&gt;​…​&lt;/ul&gt;​]
+> sidebar.find('a')</code></pre>
+</blockquote>
+
+<h3>Changing</h3>
+<blockquote>
+  <pre><code>$('h3').text('Javascript Libraries')
+$('h3').text('Javascript Libraries').css({color: 'blue', 'font-size': '5em'})</code></pre>
+<div class="alert alert-info">
+  With jQuery you can chain your actions by appending them to the list. Most jQuery selector methods will return a collection of elements back so the other methods can carry on the chain.
+</div>
+</blockquote>
+
+<h3>Listening</h3>
+<blockquote>
+  <p>jQuery can listen to various <a href="http://api.jquery.com/category/events/">events</a> and user interactions to the DOM.</p>
+  <p>The most common events are:</p>
+  <ul class='events-list'>
+    <li>click</li>
+    <li>focus</li>
+    <li>mouse over</li>
+    <li>mouse out</li>
+    <li>hover</li>
+    <li>keypress</li>
+    <li>change</li>
+    <li>submit</li>
+  </ul>
+  <pre><code>$("h3").click(function() {
+  alert( "Handler for .click() called." );
+});</code></pre>
+</blockquote>
+
+<h3>Animating</h3>
+<blockquote>
+  <p>
+    The jQuery library provides several techniques for adding <a href="http://api.jquery.com/category/effects/">animation</a> to a web page. These include simple, standard animations that are frequently used, and the ability to craft sophisticated custom effects.
+  </p>
+  <pre><code>$(".events-list").slideUp().slideDown();
+$('h3').fadeOut().fadeIn()</code></pre>
+</blockquote>
+
+<h3>jQuery UI</h3>
+<blockquote>
+  <p>More complex animating / event handling can be achieved with <a href="http://jqueryui.com/demos/">jQuery UI</a></p>
+  <p>It includes:</p>
+  <ul>
+    <li>Drag & Drop</li>
+    <li>Sortable</li>
+    <li>Autocomplete</li>
+    <li>Datepicker</li>
+    <li>and many more</li>
+  </ul>
+</blockquote>

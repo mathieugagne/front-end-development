@@ -65,27 +65,21 @@
     <%= link_to 'DOM Manipulation', dom_manipulation_path %>
   </li>
   <li class="<%= 'active' if current_page?('/js-libraries') %>">
-    <%= link_to 'JS Libraries', js_libraries_path %>
+    <%= link_to 'JS Libraries: jQuery', js_libraries_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/jquery-tutorial') %>">
-    <%= link_to 'jQuery Tutorial', jquery_tutorial_path %>
+  <li class="<%= 'active' if current_page?('/coffeescript') %>">
+    <%= link_to 'Coffeescript', coffeescript_path %>
   </li>
-  <li class="<%= 'active' if current_page?('/layout-and-rendering') %>">
-    <%= link_to 'Adding plugins to Rails', root_url %>
+  <li class="<%= 'active' if current_page?('/better-alerts') %>">
+    <%= link_to 'Better Alerts', better_alerts_url %>
+  </li>
+  <li class="<%= 'active' if current_page?('/ajax') %>">
+    <%= link_to 'AJAX', ajax_path %>
   </li>
   <li class="<%= 'active' if current_page?('/turbolinks') %>">
     <%= link_to 'Turbolinks', turbolinks_path %>
   </li>
   <li class="<%= 'active' if current_page?('/layout-and-rendering') %>">
-    <%= link_to 'Coffeescript', root_url %>
-  </li>
-  <li class="<%= 'active' if current_page?('/layout-and-rendering') %>">
     <%= link_to "What's the weather like?", root_url %>
-  </li>
-</ul>
-
-<ul class="nav nav-sidebar">
-  <li class="<%= 'active' if current_page?('/next-steps') %>">
-    <%= link_to 'Next Steps', next_steps_path %>
   </li>
 </ul>

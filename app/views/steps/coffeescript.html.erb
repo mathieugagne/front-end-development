@@ -1,0 +1,76 @@
+<h1 class="page-header">CoffeeScript</h1>
+<blockquote>
+  <p>CoffeeScript is a little language that compiles into JavaScript. Underneath that awkward Java-esque patina, JavaScript has always had a gorgeous heart. CoffeeScript is an attempt to expose the good parts of JavaScript in a simple way.</p>
+  <p>The golden rule of CoffeeScript is: "It's just JavaScript". The code compiles one-to-one into the equivalent JS, and there is no interpretation at runtime. You can use any existing JavaScript library seamlessly from CoffeeScript (and vice-versa). The compiled output is readable and pretty-printed, will work in every JavaScript runtime, and tends to run as fast or faster than the equivalent handwritten JavaScript.</p>
+</blockquote>
+
+<h3>The evolution</h3>
+<blockquote>
+  <p>Vanilla Javascript</p>
+  <pre><code>document.addEventListener("DOMContentLoaded", function() {
+  // code…
+});</code></pre>
+  <p>jQuery</p>
+  <pre><code>$(document).ready(function() {
+  // code…
+});</code></pre>
+  <p>CoffeeScript</p>
+  <pre><code>$ -> code</code></pre>
+</blockquote>
+
+<h3>Why?</h3>
+<blockquote>
+  <ol>
+    <li>Encourages the use of good JavaScript patterns</li>
+    <li>Discourages JavaScript anti-patterns</li>
+    <li>Makes even good JavaScript code shorter and more readable</li>
+  </ol>
+</blockquote>
+
+<h3>Main differences</h3>
+<blockquote>
+  <ul>
+    <li>CoffeeScript uses significant whitespace to delimit blocks of code</li>
+      <ol>
+        <li>Drop <code>;</code></li>
+        <li>Drop <code>{}</code></li>
+        <li>Drop <code>()</code></li>
+      </ol>
+    <li>variables are auto-scoped</li>
+    <li>Adds new keywords: <code>unless</code>, <code>and</code>, <code>then</code></li>
+    <li>Adds <code>@</code> to refer to <code>this</code></li>
+    <li>-> vs => to keep context</li>
+    <li>etc.</li>
+  </ul>
+  <p>There are some problems developpers often mention about CoffeeScript:</p>
+  <ul>
+    <li>Compilation can be a pain (not really within Rails)</li>
+    <li>Debugging can be a pain</li>
+    <li>Not as well-known, smaller community, etc.</li>
+  </ul>
+  <p></p>
+</blockquote>
+
+<h3>Try it out</h3>
+<blockquote>
+  <p>Head to <a href="http://coffeescript.org/">coffeescript.org</a> and click "Try CoffeeScript"</p>
+  <pre><code>class WhereAmI
+  constructor: (city) ->
+    @city = city
+    alert "That's not a city!" unless @city
+
+  cityInCanada: -> "#{@city}, #{@country()}"
+  country: -> 'Canada'
+
+location = new WhereAmI prompt('Where are you?')
+alert location.cityInCanada()</code></pre>
+  <p>Click <a href="http://coffeescript.org/#try:class%20%40Weather%0A%20%0A%20%20constructor%3A%20(element%2C%20query)%20-%3E%0A%20%20%20%20%40el%20%3D%20element%0A%20%20%20%20%40api_key%20%3D%20'XYZ'%0A%20%20%20%20%40query%20%3D%20query%0A%20%20%20%20%40getForecast()%0A%20%0A%20%20getForecast%3A%20%3D%3E%0A%20%20%20%20%24.ajax(%0A%20%20%20%20%20%20url%3A%20'http%3A%2F%2Fapi.worldweatheronline.com%2Ffree%2Fv1%2Fweather.ashx'%0A%20%20%20%20%20%20dataType%3A%20'jsonp'%0A%20%20%20%20%20%20data%3A%0A%20%20%20%20%20%20%20%20key%3A%20%40api_key%0A%20%20%20%20%20%20%20%20format%3A%20'json'%0A%20%20%20%20%20%20%20%20q%3A%20%40query%0A%20%20%20%20%20%20%20%20num_of_days%3A%201%0A%20%20%20%20%20%20beforeSend%3A%20%3D%3E%20%40showSpinner()%0A%20%20%20%20%20%20complete%3A%20%3D%3E%20%40hideSpinner()%0A%20%20%20%20%20%20error%3A%20%3D%3E%20%40displayError()%0A%20%20%20%20%20%20success%3A%20(response)%20%3D%3E%0A%20%20%20%20%20%20%20%20try%0A%20%20%20%20%20%20%20%20%20%20%40update(response)%0A%20%20%20%20%20%20%20%20catch%20error%0A%20%20%20%20%20%20%20%20%20%20%40displayError()%0A%20%20%20%20)%0A%20%0A%20%20update%3A%20(response)%20-%3E%0A%20%20%20%20%24(%40el).find(%22%5Bdata-weather%3D'temp_max_c'%5D%22).text(%22H%3A%20%23%7Bresponse.data.weather%5B0%5D.tempMaxC%7D%C2%B0%22)%0A%20%20%20%20%24(%40el).find(%22%5Bdata-weather%3D'temp_min_c'%5D%22).text(%22L%3A%20%23%7Bresponse.data.weather%5B0%5D.tempMinC%7D%C2%B0%22)%0A%20%20%20%20%24(%40el).find(%22%5Bdata-weather%3D'temp_c'%5D%22).text(%22%23%7Bresponse.data.current_condition%5B0%5D.temp_C%7D%C2%B0%22)%0A%20%20%20%20%24(%40el).find(%22%5Bdata-weather%3D'city'%5D%22).text(response.data.request%5B0%5D.query)%0A%20%20%20%20%24(%40el).find(%22%5Bdata-weather%3D'description'%5D%22).text(response.data.current_condition%5B0%5D.weatherDesc%5B0%5D.value)%0A%20%0A%20%20displayError%3A%20-%3E%20%24(%40el).append('Sorry.%20Weather%20could%20not%20be%20processed%20at%20this%20moment.')%20%0A%20%20showSpinner%3A%20-%3E%20%24(%40el).find('.icon-spinner').show()%20%0A%20%20hideSpinner%3A%20-%3E%20%24(%40el).find('.icon-spinner').hide()">here</a> to launch another example</p>
+</blockquote>
+
+<h2>Resources</h2>
+<blockquote>
+  <ul>
+    <li><a href="http://coffeescript.org/">CoffeeScript.org</a></li>
+    <li><a href="http://coffeescriptcookbook.com/">CoffeeScript Cookbook</a></li>
+  </ul>
+</blockquote>
