@@ -40,10 +40,36 @@ end</code></pre>
 
 <h3>Step 3</h3>
 <blockquote>
-  <p>Create a <code>create.js.erb</code> template</p>
+  <p>Display notifications from <code>create.js.erb</code></p>
+  <pre><code>new Notification("&lt;%= @message %&gt;", "&lt;%= @message_type %&gt;");</code></pre>
+</blockquote>
+
+<h3>Step 4</h3>
+<blockquote>
+  <p>Add newly created comment to the list</p>
+  <pre><code>&lt;% if @comment.valid? %&gt;
+  $("&lt;%= escape_javascript(render @comment) %&gt;").prependTo(".comments");
+&lt;% end %&gt;
+new Notification("&lt;%= @message %&gt;", "&lt;%= @message_type %&gt;");</code></pre>
+</blockquote>
+
+<h3>Step 5</h3>
+<blockquote>
+  <p>Reset the form</p>
   <pre><code>&lt;% if @comment.valid? %&gt;
   $("&lt;%= escape_javascript(render @comment) %&gt;").prependTo(".comments");
   $('#new_comment')[0].reset()
 &lt;% end %&gt;
 new Notification("&lt;%= @message %&gt;", "&lt;%= @message_type %&gt;");</code></pre>
+</blockquote>
+
+<h2>Explanation</h2>
+<blockquote>
+  <p>So what happened?</p>
+  <ul>
+    <li><a href="https://github.com/rails/jquery-ujs">jQuery-ujs</a> intercepts the call to submit the form and sends a request to the server asynchronously.</li>
+    <li>Rails responds to the call normally until the <code>respond_to</code> block.</li>
+    <li>Rails returns a javascript response to the browser instead of the HTML default one.</li>
+    <li>Browser executes the javascript response.</li>
+  </ul>
 </blockquote>
