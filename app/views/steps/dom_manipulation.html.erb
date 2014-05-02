@@ -1,1 +1,61 @@
 <h1 class="page-header">DOM Manipulation</h1>
+<blockquote>
+  <p>
+    According to W3C, JavaScript is the most popular programming language in the world. It is the language for HTML, for the Web, for computers, servers, laptops, tablets, smart phones, and more.
+  </p>
+  <p>In HTML, JavaScript can only be used to manipulate HTML elements.</p>
+  <p>The HTML DOM model is constructed as a tree of Objects:</p>
+  <p><%= image_tag 'pic_htmltree.gif', alt: '' %></p>
+  <p>JavaScript can:</p>
+  <ul>
+    <li>change all the HTML elements in the page</li>
+    <li>change all the HTML attributes in the page</li>
+    <li>change all the CSS styles in the page</li>
+    <li>remove existing HTML elements and attributes</li>
+    <li>add new HTML elements and attributes</li>
+    <li>react to all existing HTML events in the page</li>
+    <li>create new HTML events in the page</li>
+  </ul>
+</blockquote>
+
+<h3><code>window</code></h3>
+<blockquote>
+  <p>The window object represents an open window in a browser.</p>
+  <p><a href="http://www.w3schools.com/jsref/obj_window.asp">W3C Javascript Window</a> document has a list of properties and functions you can call on the <code>window</code> object</p>
+  <pre><code>window.pageYOffset
+window.prompt('What is your favorite color?');
+window.alert('Hey you!');</code></pre>
+</blockquote>
+
+<h3><code>document</code></h3>
+<blockquote>
+  <p>
+    When a web page is loaded, the browser creates a Document Object Model of the page.
+  </p>
+  <p>The document object is the root node of the HTML document and the "owner" of all other nodes:
+(element nodes, text nodes, attribute nodes, and comment nodes).</p>
+<pre><code>document.body
+document.domain
+document.scripts
+document.links
+document.images[0].attributes['src'].value</code></pre>
+</blockquote>
+
+<h3><code>element</code></h3>
+<blockquote>
+  <p>The <a href="http://www.w3schools.com/jsref/dom_obj_all.asp">Element</a> represents an HTML element.</p>
+  <pre><code>document.firstElementChild
+document.firstElementChild.attributes
+document.getElementsByClassName('navbar')
+document.getElementsByClassName('navbar')[0].getAttribute('class')</code></pre>
+</blockquote>
+
+<h3><code>function</code></h3>
+<blockquote>
+  <pre><code>function replaceName() {
+  var myNewName = window.prompt('Pick a new name!');
+  document.getElementById('user-name').innerHTML = myNewName;
+}
+
+document.onclick = replaceName;</code></pre>
+</blockquote>
