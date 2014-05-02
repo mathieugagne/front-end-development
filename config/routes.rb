@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get '/css-techniques', to: 'steps#css_techniques'
   get '/scss', to: 'steps#scss'
   get '/smacss', to: 'steps#smacss'
+  get '/dom-manipulation', to: 'steps#dom_manipulation'
+  get '/js-libraries', to: 'steps#js_libraries'
+  get '/jquery-tutorial', to: 'steps#jquery_tutorial'
+  get '/turbolinks', to: 'steps#turbolinks'
   get '/next-steps', to: 'steps#next_steps'
 
   root to: 'steps#overview'
